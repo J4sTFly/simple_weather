@@ -7,4 +7,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :api_keys, only: :create
+    end
+  end
+
+  match "*unmatched", to: "application#render_404", via: :all
 end
