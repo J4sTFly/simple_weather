@@ -5,6 +5,6 @@ class Api::V1::ApiKeysController < Api::ApiController
     # Used just for testing purposes and should be rewritten once subscription plans implemented
     api_key = ApiKey.create_default_api_key
 
-    render json: { value: api_key }
+    render json: { value: api_key.value }
   end
 end

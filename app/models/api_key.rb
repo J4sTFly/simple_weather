@@ -12,9 +12,7 @@ class ApiKey < ApplicationRecord
                 subscription_plan: SubscriptionPlan.find(SubscriptionPlan::DEFAULT_SUBSCRIPTION_ID))
   end
 
-  private
-
-  def generate_value
+  def self.generate_value
     SecureRandom.uuid.gsub("-", "")
   end
 end

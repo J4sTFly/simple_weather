@@ -35,3 +35,5 @@ en:
         default_message: API key is missing or invalid
       '403':
         default_message: You do not have permission to access this resource.
+      '404':
+        default_message: Resource not found.

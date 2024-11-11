@@ -1,4 +1,6 @@
 class Api::ApiController < ApplicationController
+  API_VERSION_REGEX = /(?:\/v(\d)+\/)/
+
   before_action :authenticate_user, :authorize_request
 
   private
@@ -12,8 +14,12 @@ class Api::ApiController < ApplicationController
   end
 
   def authorize_request
-    render_403 unless api_key.permissions.find_by(api_version: params[:api_version],
+    render_403 unless api_key.permissions.find_by(api_version:,
                                                   controller: params[:controller],
                                                   action: params[:action])
+  end
+
+  def api_version
+    params[:controller].match(API_VERSION_REGEX)[1]&.to_i
   end
 end

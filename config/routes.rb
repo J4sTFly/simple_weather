@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   namespace :api do
-    scope "v:api_version/" do
+    namespace :v1 do
       resources :api_keys, only: :create
     end
   end
+
+  match "*unmatched", to: "application#render_404", via: :all
 end
