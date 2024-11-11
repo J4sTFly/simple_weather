@@ -39,3 +39,5 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.5"
+
+gem "data_migrate", "~> 11.1"
