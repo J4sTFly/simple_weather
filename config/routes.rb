@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    scope "v:api_version/" do
+      resources :api_keys, only: :create
+    end
+  end
 end
