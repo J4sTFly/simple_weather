@@ -5,13 +5,19 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root "application#render_404"
 
   namespace :api do
     namespace :v1 do
       resources :api_keys, only: :create
+      resources :weather, only: :index do
+        post :schedule, on: :collection
+      end
     end
+  end
+
+  direct :weather_api do
+    "http://api.weatherapi.com/v1/forecast.json"
   end
 
   match "*unmatched", to: "application#render_404", via: :all

@@ -5,12 +5,12 @@ class Api::ApiController < ApplicationController
 
   private
 
-  def authenticate_user
-    render_401 unless api_key
+  def api_key
+    @api_key ||= ApiKey.active.find_by(api_version:, value: params[:key])
   end
 
-  def api_key
-    @api_key ||= ApiKey.active.find_by(api_version: params[:api_version], value: params[:key])
+  def authenticate_user
+    render_401 unless api_key
   end
 
   def authorize_request
