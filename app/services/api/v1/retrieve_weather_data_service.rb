@@ -7,6 +7,9 @@ module Api
       def call(query)
         response = Faraday.get(weather_api_url, query.merge(key: WEATHERAPI_TOKEN))
         JSON.parse(response.body)
+      rescue Faraday::ConnectionFailed => e
+        Rails.logger.error(e)
+        false
       end
     end
   end
