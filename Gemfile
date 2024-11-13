@@ -33,17 +33,20 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  gem "rspec", "~> 3.13"
-  gem "rspec-rails", "~> 7.1"
-  gem "simplecov", "~> 0.22.0"
-  gem "factory_bot_rails", "~> 6.4"
   gem "letter_opener", "~> 1.10"
   gem "pry"
   gem "annotate", "~> 3.2"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+end
+
+group :test do
+  gem "rspec-sidekiq", "~> 5.0"
+  gem "rspec", "~> 3.13"
+  gem "rspec-rails", "~> 7.1"
+  gem "simplecov", "~> 0.22.0"
+  gem "factory_bot_rails", "~> 6.4"
 end
 
 gem "pg", "~> 1.5"
