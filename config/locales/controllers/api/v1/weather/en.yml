@@ -1,0 +1,6 @@
+en:
+  api:
+    v1:
+      weather:
+        schedule:
+          scheduled: "Weather mailing service was scheduled successfully. Schedule: %{schedule}"

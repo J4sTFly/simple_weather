@@ -9,6 +9,12 @@ en:
               service_unavailable: Service is temporarily unavailable
             days:
               not_in_plan_forecast_range: not in range of applied subscription plan
+        api/v1/schedule_weather_form:
+          attributes:
+            time:
+              invalid_format: passed in wrong format
+            weekdays:
+              invalid_format: passed in wrong format
   api:
     api_error: error
     errors:
@@ -18,3 +24,6 @@ en:
         default_message: You do not have permission to access this resource.
       '404':
         default_message: Resource not found.
+  mailers:
+    weather_data:
+      subj: Sample Subj
