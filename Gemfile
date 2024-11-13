@@ -7,7 +7,7 @@ gem "puma", ">= 5.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -33,17 +33,28 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-
-  gem "rspec", "~> 3.13"
-  gem "rspec-rails", "~> 7.1"
-  gem "simplecov", "~> 0.22.0"
-  gem "factory_bot_rails", "~> 6.4"
+  gem "letter_opener", "~> 1.10"
   gem "pry"
+  gem "annotate", "~> 3.2"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
 
+group :test do
+  gem "rspec-sidekiq", "~> 5.0"
+  gem "rspec", "~> 3.13"
+  gem "rspec-rails", "~> 7.1"
+  gem "simplecov", "~> 0.22.0"
+  gem "factory_bot_rails", "~> 6.4"
+end
+
 gem "pg", "~> 1.5"
 
 gem "data_migrate", "~> 11.1"
+
+gem "faraday", "~> 2.12"
+
+gem "sidekiq", "~> 7.3"
+
+gem "ice_cube", "~> 0.17.0"

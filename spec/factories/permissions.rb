@@ -13,6 +13,18 @@
 #
 #  index_permissions_on_controller_and_action  (controller,action) UNIQUE
 #
-class Permission < ApplicationRecord
-  has_and_belongs_to_many :subscription_plans, optional: false
+FactoryBot.define do
+  factory :permission do
+    factory :weather_index_permission do
+      controller { 'api/v1/weather' }
+      api_version { 1 }
+      action { 'index' }
+    end
+
+    factory :weather_schedule_permission do
+      controller { 'api/v1/weather' }
+      api_version { 1 }
+      action { 'schedule' }
+    end
+  end
 end
