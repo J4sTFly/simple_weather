@@ -38,6 +38,7 @@ group :development, :test do
   gem "rspec-rails", "~> 7.1"
   gem "simplecov", "~> 0.22.0"
   gem "factory_bot_rails", "~> 6.4"
+  gem "letter_opener", "~> 1.10"
   gem "pry"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
@@ -52,4 +53,4 @@ gem "faraday", "~> 2.12"
 
 gem "sidekiq", "~> 7.3"
 
-gem "sidekiq-scheduler", "~> 5.0"
+gem "ice_cube", "~> 0.17.0"
