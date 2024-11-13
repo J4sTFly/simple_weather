@@ -1,6 +1,6 @@
 module Api
   module V1
-    class WeatherForm < BaseForm
+    class WeatherBaseForm < BaseForm
       PARAMS_VARIANTS = [
         [ :city ],
         [ :lat, :lon ],
@@ -22,22 +22,7 @@ module Api
         super **params
       end
 
-      def run
-        return false if invalid?
-        @result = RetrieveWeatherDataService.new.call(build_params)
-      end
-
       private
-
-      def build_params
-        if city.present?
-          { q: city, days: }
-        elsif ip.present?
-          { q: ip, days: }
-        else
-          attributes.compact
-        end
-      end
 
       def days_in_plan_forecast_range
         errors.add(:days, :not_in_plan_forecast_range) unless (1..subscription_plan.forecast_days).include?(days)

@@ -2,10 +2,11 @@ en:
   activemodel:
     errors:
       models:
-        api/v1/weather_form:
+        api/v1/weather_base_form:
           attributes:
             base:
               incorrect_params_provided: Please provide correct query params
+              service_unavailable: Service is temporarily unavailable
             days:
               not_in_plan_forecast_range: not in range of applied subscription plan
   api:

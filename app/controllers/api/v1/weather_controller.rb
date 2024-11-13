@@ -1,6 +1,7 @@
 class Api::V1::WeatherController < Api::ApiController
   def index
-    weather_form = Api::V1::WeatherForm.new(api_key.subscription_plan, **weather_params)
+    weather_form = Api::V1::RetrieveWeatherForm.new(api_key.subscription_plan, **weather_params)
+
     if weather_form.run
       render json: Api::V1::WeatherDataSerializer.new(weather_form.result).serialized_data
     else
@@ -9,6 +10,7 @@ class Api::V1::WeatherController < Api::ApiController
   end
 
   def schedule; end
+  end
 
   private
 
