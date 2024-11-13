@@ -16,6 +16,8 @@ module Api
       attribute :ip, :string
       attribute :days, :integer, default: 1
 
+      validates :lat, numericality: { in: -90..90 }, if: -> { lat.present? }
+      validates :lon, numericality: { in: -180..180 }, if: -> { lon.present? }
       validate :days_in_plan_forecast_range, :correct_location_params_provided
 
       def initialize(subscription_plan, **params)
