@@ -3,13 +3,13 @@
   <table>
     <thead>
       <% @data.first.keys.each do |key| %>
-      <tr>
-        <th><%= key %></th>
-      </tr>
+        <tr>
+          <th><%= key %></th>
+        </tr>
       <% end %>
     </thead>
     <tbody>
-      <% @data.each |day| %>
+      <% @data.each do |day| %>
         <tr>
           <% day.keys.each do |key|%>
             <td><%= day[key] %></td>
@@ -19,7 +19,7 @@
     </tbody>
   </table>
 <% else %>
-<div>
-  <span>No Data</span>
-</div>
+  <div>
+    <span>No Data</span>
+  </div>
 <% end %>

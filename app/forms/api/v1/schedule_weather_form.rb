@@ -3,7 +3,7 @@ module Api
     class ScheduleWeatherForm < WeatherBaseForm
       WEEKDAYS = IceCube::IcalBuilder::ICAL_DAYS.to_set
       attribute :weekdays, :string
-      attribute :time, :time
+      attribute :time, :string
       attribute :email, :string
 
       validates :weekdays, :time, presence: true
