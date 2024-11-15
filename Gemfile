@@ -51,7 +51,7 @@ end
 
 gem "pg", "~> 1.5"
 
-gem "data_migrate", "~> 11.1"
+gem "data_migrate", "~> 11.2"
 
 gem "faraday", "~> 2.12"
 
