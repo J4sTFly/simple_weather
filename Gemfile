@@ -36,6 +36,7 @@ group :development, :test do
   gem "letter_opener", "~> 1.10"
   gem "pry"
   gem "annotate", "~> 3.2"
+  gem "rswag", "~> 2.16"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
