@@ -1,0 +1,76 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      - PGDATABASE=sweather_dev
+      - PGUSER=postgres
+      - PGPASSWORD=postgres
+    networks:
+      - backend
+    healthcheck:
+      interval: 5s
+      retries: 5
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - backend
+  sidekiq:
+    tty: true
+    stdin_open: true
+    build: .
+    command: bundle exec sidekiq
+    volumes:
+      - .:/rails
+    networks:
+      - backend
+    depends_on:
+      - db
+      - jaeger
+      - redis
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    networks:
+      - backend
+    environment:
+      - COLLECTOR_ZIPKIN_HTTP_PORT=:9411
+      - COLLECTOR_OTLP_ENABLED=true
+    ports:
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 5778:5778
+      - 16686:16686
+      - 14268:14268
+      - 14269:14269
+      - 14250:14250
+      - 9411:9411
+      - 4317:4317
+      - 4318:4318
+  web:
+    build: ./
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/rails
+    environment:
+      DB_HOST: db
+    networks:
+      - backend
+    depends_on:
+      - db
+      - redis
+      - jaeger
+
+volumes:
+  postgres:
+  sidekiq:
+
+networks:
+  backend:
+    name: custom_backend

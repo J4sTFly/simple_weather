@@ -25,9 +25,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_13_191700) do
     t.index ["subscription_plan_id"], name: "index_api_keys_on_subscription_plan_id"
   end
 
-  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
-  end
-
   create_table "permissions", force: :cascade do |t|
     t.integer "api_version", null: false
     t.string "controller", null: false
