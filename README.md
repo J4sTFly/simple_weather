@@ -18,6 +18,7 @@ SimpleWeather is a simple Rails project written with growth intentions in mind. 
 git  clone  https://github.com/J4sTFly/simple_weather.git
 
 cd  ./simple_weather
+cp ./.env.sample ./.env
 
 docker compose up
 ```
