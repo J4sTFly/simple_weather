@@ -6,10 +6,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres:/var/lib/postgresql/data
-    environment:
-      - PGDATABASE=sweather_dev
-      - PGUSER=postgres
-      - PGPASSWORD=postgres
+    env_file:
+      - .env
     networks:
       - backend
     healthcheck:
