@@ -65,7 +65,7 @@ gem "opentelemetry-sdk", "~> 1.5"
 gem "opentelemetry-instrumentation-all", "~> 0.68.0"
 # gem "opentelemetry-exporter-otlp", "~> 0.29.0"
 gem "opentelemetry-exporter-jaeger", "~> 0.23.0"
-gem "opentelemetry-instrumentation-pg", "~> 0.29.0"
+gem "opentelemetry-instrumentation-pg", "~> 0.29.1"
 gem "opentelemetry-metrics-api", "~> 0.1.1"
 gem "opentelemetry-metrics-sdk", "~> 0.3.0"
 
